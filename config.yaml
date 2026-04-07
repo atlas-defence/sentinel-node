@@ -1,0 +1,30 @@
+node_id: node-001
+
+modules:
+  - rf
+  - audio
+  - env
+
+processing:
+  filters:
+    min_signal_strength: 0.35
+    max_noise_level: 0.85
+  detectors:
+    spike_threshold: 0.8
+
+storage:
+  directory: data
+  sqlite_path: data/sentinel.sqlite3
+  jsonl_path: data/events.jsonl
+
+api:
+  enabled: true
+  host: 127.0.0.1
+  port: 8787
+
+network:
+  enabled: false
+  # List of peer ingest endpoints that accept POST /ingest
+  peers: []
+  # Optional shared secret for HMAC signature on outbound messages
+  shared_secret: ""
